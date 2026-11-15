@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+<body>
+
+    <h1>EMAIL VALIDATION</h1>
+
+    <form name="myform" action="abc.php" onsubmit="return validate_email()" method="post">
+
+        <label>Email:</label>
+        <input type="text" name="email" id="email">
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        function validate_email() {
+
+            let email = document.myform.email.value.trim();
+
+            if (email === "") {
+                alert("Email Id cannot be empty");
+                document.myform.email.focus();
+                return false;
+            }
+
+            if (!(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))) {
+                alert("Invalid Email Address");
+                document.myform.email.focus();
+                return false;
+            }
+
+            alert("Valid Email");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
+  
+
